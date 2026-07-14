@@ -80,7 +80,8 @@ kubectl get endpoints redis-svc
 Verify Redis is reachable by its cluster DNS name:
 
 ```bash
-kubectl run redis-test -it --rm --image=redis:7-alpine -- redis-cli -h redis-svc ping
+kubectl run redis-test --image=redis:7-alpine --restart=Never --rm -it -- redis-cli -h redis-svc ping
+
 # expect: PONG
 ```
 
